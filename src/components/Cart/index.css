@@ -1,0 +1,8 @@
+.cart-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-img {
+  height: 200px;
+}
