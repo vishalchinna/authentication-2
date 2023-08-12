@@ -20,9 +20,9 @@ class LoginForm extends Component {
     this.setState({password: event.target.value})
   }
 
-  onSubmitSuccess = JWTtoken => {
+  onSubmitSuccess = jwtToken => {
     const {history} = this.props
-    Cookies.set('jwt_token', JWTtoken, {expires: 10})
+    Cookies.set('jwt_token', jwtToken, {expires: 10})
     history.replace('/')
   }
 
@@ -42,7 +42,7 @@ class LoginForm extends Component {
     const response = await fetch(url, options)
     const data = await response.json()
     if (response.ok === true) {
-      this.onSubmitSuccess(data)
+      this.onSubmitSuccess(data.jwt_token)
     } else {
       this.onSubmitFailure(data.error_msg)
     }
